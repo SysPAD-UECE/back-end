@@ -1,0 +1,15 @@
+# Python cache
+*/__pycache__/*
+*.pyc
+
+# virtualenv
+.env
+.venv
+env/
+ENV/
+venv/
+
+# Config files
+*export_env_variables_backend.sh
+
+

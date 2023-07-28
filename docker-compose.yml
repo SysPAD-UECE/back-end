@@ -1,0 +1,36 @@
+version: '3.8'
+
+services:
+  db:
+    build: ./db
+    image: db-syspad
+    container_name: db-container
+    ports:
+      - "3307:3306"
+    env_file:
+      - ./db/db.env
+    volumes:
+      - syspad-database:/var/lib/mysql
+    networks:
+      - syspad-network
+    restart: always
+
+  api:
+    build: "./"
+    image: api-syspad
+    container_name: api-container
+    ports:
+      - "5000:5000"
+    env_file:
+      - ./app/app.env
+    networks:
+      - syspad-network
+    restart: always
+    depends_on:
+      - db
+
+volumes:
+  syspad-database: {}
+
+networks:
+  syspad-network:
