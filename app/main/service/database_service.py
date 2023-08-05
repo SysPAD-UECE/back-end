@@ -162,15 +162,6 @@ def delete_database(database_id: int, current_user: User) -> None:
             db.session.delete(database_keys)
             db.session.flush()
 
-        anonymization_records = AnonymizationRecord.query.filter(
-            AnonymizationRecord.database_id == database_id
-        ).all()
-
-        if anonymization_records:
-            for anonymization_record in anonymization_records:
-                db.session.delete(anonymization_record)
-                db.session.flush()
-
         sql_logs = SqlLog.query.filter(SqlLog.database_id == database_id).all()
 
         if sql_logs:
@@ -178,10 +169,19 @@ def delete_database(database_id: int, current_user: User) -> None:
                 db.session.delete(sql_log)
                 db.session.flush()
 
-        tables = Table.query.filter(Table.database_id == database_id).all()
+        tables = Table.quegry.filter(Table.database_id == database_id).all()
 
         if tables:
             for table in tables:
+                anonymization_records = AnonymizationRecord.query.filter(
+                    AnonymizationRecord.table_id == table.id
+                ).all()
+
+                if anonymization_records:
+                    for anonymization_record in anonymization_records:
+                        db.session.delete(anonymization_record)
+                        db.session.flush()
+
                 db.session.delete(table)
                 db.session.flush()
     except:

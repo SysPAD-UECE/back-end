@@ -1,10 +1,10 @@
-**SysPAD API - v1.2.0**
+# SysPAD API - v1.2.0
 
-**Description**
+## Description
 
 The Syspad API (Application Programming Interface) consists of a RESTful (Representational State Transfer) model that enables the interaction of different systems efficiently through a set of architectural guidelines based on the HTTP protocol, implementing standardized methods such as GET, POST, PUT, and DELETE. The system has the function of protecting the database based on encryption and anonymization.
 
-**Key Features**
+## Key Features
 
 - User
 - Auth
@@ -17,20 +17,20 @@ The Syspad API (Application Programming Interface) consists of a RESTful (Repres
 - Anonymization
 - Sql log
 
-**Complete Documentation**
+## Complete Documentation
 
 The complete API documentation, including details about all available endpoints, request parameters, response formats, and usage examples, can be found at [DOCUMENTATION LINK](https://github.com/FRIDA-LACNIC-UECE/documentation/blob/main/SysPAD%20Documentation.pdf) or SWAGGER DOCUMENTATION at http://localhost:5000 after executed.
 
-**Technologies Used**
+## Technologies Used
 
 - Programming Language: Python (Version 3.10)
 - Framework/API/Web Framework: Flask Framework
 - Supported Database: MySQL and PostgreSQL
 - Object Relational Mapping: SqlAlchemy
 
-**Installation and Usage**
+## Installation and Usage
 
-**Without docker:**  
+### Without docker: 
 
 1. Clone this repository to your local machine using the following command:
 
@@ -73,7 +73,7 @@ The complete API documentation, including details about all available endpoints,
    python3 application.py
    ```
 
-**With docker:** 
+### With docker:
 1. Set up the environment variables:
 
    ```
@@ -88,8 +88,17 @@ The complete API documentation, including details about all available endpoints,
    docker compose up
    ```
 
+## Test Users
 
-**Contributing**
+### Guest user:
+- Email: convidado@example.com
+- Password: Convidado@123
+
+### Admin user:
+- Email: admin@example.com
+- Password: Admin@123
+
+## Contributing
 
 If you would like to contribute to the project, please follow these steps:
 
